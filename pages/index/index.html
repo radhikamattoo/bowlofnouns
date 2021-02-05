@@ -22,17 +22,28 @@
        <div class="row">
         <div class="col-md-6">
             <div>
-                <label for="joinExistingGameCode">Join a game via code</label>
-                <input type="text" class="form-control" id="joinExistingGameCode" placeholder="Enter code" required/>
+                <label for="joinExistingOnlineGameCode">Join an online game via code</label>
+                <input type="text" class="form-control" id="joinExistingOnlineGameCode" placeholder="Enter code" required/>
                 <br />
-                <button type="button" class="btn btn-primary" id="joinExistingGameBtn">
+                <button type="button" class="btn btn-primary" id="joinExistingOnlineGameBtn">
                     Join
                 </button>
             </div>
         </div>
         <div class="col-md-6">
             <div>
-                <label for="createNewGameBtn">Create new game</label>
+                <p>Create new game</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gameType" id="onlineGameRadio" value="online" checked>
+                    <label class="form-check-label" for="onlineGameRadio">
+                      Online
+                    </label><br/>
+
+                    <input class="form-check-input" type="radio" name="gameType" id="localGameRadio" value="local">
+                    <label class="form-check-label" for="localGameRadio">
+                      Local
+                    </label>
+                </div>
                 <button type="button" class="btn btn-primary" id="createNewGameBtn">
                     Create
                 </button>

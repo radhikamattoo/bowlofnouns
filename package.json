@@ -20,7 +20,9 @@
     "electron": "^11.2.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "redis": "^3.0.2",
+    "uuid": "^8.3.2"
   },
   "config": {
     "forge": {
