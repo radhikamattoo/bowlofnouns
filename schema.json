@@ -1,8 +1,8 @@
 {
     "game": {
+        "min_players": 4,
         "uuid": "",
         "words": [],
-        "game_leader": "",
         "max_words_per_player": 3,
         "bowl": [],
         "used_words": [],
@@ -16,20 +16,16 @@
         "team_2": {
             "players": [],
             "score": 0
-        }
-
+        },
+        "code": "",
+        "host_player": null,
+        "online": true,
+        "live": true
     },
     "player": {
         "name": "",
         "password": "",
         "uuid": "",
         "past_games": []
-    },
-    "session": {
-        "online": true,
-        "live": true,
-        "players": [],
-        "game": {},
-        "code": ""
     }
 }

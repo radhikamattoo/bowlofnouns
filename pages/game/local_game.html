@@ -4,17 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="gameplay.js"></script>
     <title>Bowl of Nouns</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body style="background: lightgrey;">
-    <div class="container">
-       <div class="row">
-           <div class="col-md-12">
-                Gameplay!
-           </div>
-       </div>
+<body style="background: #dbc3c3;">
+    <div class="container-fluid">
+            <div id="startDiv" class="row justify-content-md-center" >
+                <div class="col-md-4">
+                    <h4>Team 1</h4>
+                    
+                    <ul id="teamOnePlayers" class="list-group">
+                        <!-- <li class="list-group-item"></li> -->
+                    </ul>
+
+                    <input type="text" class="form-control" id="teamOneAddPlayerInput" placeholder="Add Team 1 Player">
+                    
+                    <button type="button" class="btn btn-primary" id="teamOneAddPlayerBtn">
+                        Add
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <h4>Gameplay and Settings:</h4>
+                    <p class="text-left" >
+                        1. Everyone's divided into 2 teams <br/>
+                        2. Everyone writes down N (default 3) noun-words/phrases <br/>
+                        3. Words are mixed up! <br/>
+                        4. 3 rounds of gameplay, each round is 60 seconds rotating between teams until bowl is empty. Each team counts their solves words to keep score. <br/>
+                            1st Round - Describe in away way, but cannot say the word. <br/>
+                            2nd Round - 3 words only. <br/>
+                            3rd Round - Charades. <br/>
+                            Bonus Round - One sound only. <br/>
+                        5. Team with the most points at the end of all rounds wins! <br/>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Team 2</h4>
+
+                    <ul id="teamTwoPlayers" class="list-group">
+                        <!-- <li class="list-group-item"></li> -->
+                    </ul>
+
+                    <input type="text" class="form-control" id="teamTwoAddPlayerInput" placeholder="Add Team 2 Player">
+
+                    <button type="button" class="btn btn-danger" id="teamTwoAddPlayerBtn">
+                        Add
+                    </button>
+                </div>
+        </div>
+        <div id="gameDiv" class="row">
+
+        </div>
     </div>
-    <script src="gameplay.js"></script>
 </body>
 </html>

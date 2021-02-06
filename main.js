@@ -10,10 +10,10 @@ const { v4 } = require('uuid');
 const schema = require('./schema.json');
 
 const defaultWindowConfig = {
-  width: 800,
-  height: 600,
-  minWidth: 800,
-  minHeight: 600,
+  width: 900,
+  height: 700,
+  minWidth: 900,
+  minHeight: 700,
   webPreferences: {
     nodeIntegration: true
   }
@@ -43,10 +43,10 @@ app.on('activate', () => {
 })
 
 // IPC for home window
-ipcMain.handle('create-new-game', (event, req_payload) =>{
-  const name = req_payload.name;
-  const online = req_payload.online;
-  console.log(`Creating new game in ipcMain handler: ${JSON.stringify(req_payload)}`);
+ipcMain.handle('create-new-game', (event, payload) =>{
+  const name = payload.name;
+  const online = payload.online;
+  console.log(`Creating new game in ipcMain handler: ${JSON.stringify(payload)}`);
 
   const player = Object.assign({}, schema.player, {
     name,
@@ -56,15 +56,11 @@ ipcMain.handle('create-new-game', (event, req_payload) =>{
   
   // initialize game
   game.uuid = v4();
-  game.game_leader = player;
   game.players.push(player);
-
-  // Initialize session
-  const session = Object.assign({}, schema.session);
-  session.uuid = v4();
-  session.code = v4().substring(0, 5);
-  session.online = online;
-  session.players.push(player);
+  game.team_1.players.push(player);
+  game.code = v4().substring(0, 5);
+  game.host_player = player;
+  game.online = online;
 
   // Open window and send game data to window
   const gameWindowConfig = Object.assign({}, defaultWindowConfig, { show: false });
@@ -74,12 +70,7 @@ ipcMain.handle('create-new-game', (event, req_payload) =>{
   gameWindow.webContents.on('did-finish-load', () => {
     gameWindow.show();
     homeWindow.hide();
-
-    const res_payload = {
-      session,
-      host_player: player
-    };
-    gameWindow.webContents.send('start-new-game', res_payload);
+    gameWindow.webContents.send('start-new-game', game);
   });
 });
 
